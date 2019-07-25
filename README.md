@@ -6,6 +6,12 @@
 - [Getting started > iOS Quickstart](https://www.twilio.com/docs/chat/ios/quickstart)
 - [Tutorials > Chat with iOS and Swift](https://www.twilio.com/docs/chat/tutorials/chat-application-ios-swift)
 
+## Why?
+
+In order to be able to run tests also on Linux systems, we abstract Swift code in SPMs as much as possible, that can be used by our iOS applications. The iOS application will have the real Twilio dependency (via Cocoapods), and the tests are run isolated in the Twilio Chat SPM package, which loads this SPM dependency.
+
+Objective-C bridges and umbrella headers did not work as expected in this kind of integration, therefore we decided to transform those headers into swift files without implementing any logic and stubbing function returns.
+
 ## Versions
 
 Versions are linked via git tags.
