@@ -54,9 +54,9 @@ open class TCHChannels: NSObject {
      @discussion TCHChannelOptionType - Expected values are @(TCHChannelTypePublic) or @(TCHChannelTypePrivate) (optional)
      @discussion TCHChannelOptionAttributes - Expected value is an NSDictionary<NSString*,id> *, see also TCHChannel setAttributes:completion: (optional)
      */
-    public func createChannel(withOptions options: [String : Any?]?, completion: TCHChannelCompletion?) {
+    public func createChannel(options: [String : Any?]?, completion: TCHChannelCompletion?) {
     }
-
+    
     /** Obtains a channel with the specified id or unique name.
 
      @param sidOrUniqueName Identifier or unique name for the channel.

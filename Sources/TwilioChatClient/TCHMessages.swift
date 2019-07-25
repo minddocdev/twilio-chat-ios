@@ -115,7 +115,7 @@ open class TCHMessages: NSObject {
 
      @param completion Optional completion block that will specify the result of the operation and an updated unconsumed message count for the user on this channel.
      */
-    public func setAllMessagesConsumedWith(_ completion: TCHCountCompletion?) {
+    public func setAllMessagesConsumedWithCompletion(_ completion: TCHCountCompletion?) {
     }
 
     /** Reset the last consumed index for this Member and Channel to no messages consumed.
@@ -129,6 +129,6 @@ open class TCHMessages: NSObject {
 
      @param completion Optional completion block that will specify the result of the operation and an updated unconsumed message count for the user on this channel.
      */
-    public func setNoMessagesConsumedWith(_ completion: TCHCountCompletion?) {
+    public func setNoMessagesConsumedWithCompletion(_ completion: TCHCountCompletion?) {
     }
 }
