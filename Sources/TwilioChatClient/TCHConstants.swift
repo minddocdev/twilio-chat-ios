@@ -9,7 +9,7 @@
 import Foundation
 
 //* Client connection state.
-public enum TCHClientConnectionState : Int {
+public enum TCHClientConnectionState: Int {
     case unknown ///< Client connection state is not yet known.
     case disconnected ///< Client is offline and no connection attempt in process.
     case connected ///< Client is online and ready.
@@ -19,7 +19,7 @@ public enum TCHClientConnectionState : Int {
 }
 
 //* The synchronization status of the client.
-public enum TCHClientSynchronizationStatus : Int {
+public enum TCHClientSynchronizationStatus: Int {
     case started = 0 ///< Client synchronization has started.
     case channelsListCompleted ///< Channels list is available.
     case completed ///< All joined channels, their members and the requested number of messages are synchronized.
@@ -27,7 +27,7 @@ public enum TCHClientSynchronizationStatus : Int {
 }
 
 //* Enumeration indicating the client's logging level.
-public enum TCHLogLevel : Int {
+public enum TCHLogLevel: Int {
     case silent = 0 ///< Show no errors.
     case fatal ///< Show fatal errors only.
     case critical ///< Show critical log messages as well as all Fatal log messages.
@@ -38,7 +38,7 @@ public enum TCHLogLevel : Int {
 }
 
 //* Enumeration indicating the updates made to the TCHChannel object.
-public enum TCHChannelUpdate : Int {
+public enum TCHChannelUpdate: Int {
     case status = 1 ///< The user's status on this channel changed.
     case lastConsumedMessageIndex ///< The user's last consumed message index on this channel changed.
     case uniqueName ///< The channel's unique name changed.
@@ -49,7 +49,7 @@ public enum TCHChannelUpdate : Int {
 }
 
 //* Enumeration indicating the channel's current synchronization status with the server.
-public enum TCHChannelSynchronizationStatus : Int {
+public enum TCHChannelSynchronizationStatus: Int {
     case none = 0 ///< Channel not ready yet, local object only.
     case identifier ///< Channel SID is available.
     case metadata ///< Channel SID, Friendly Name, Attributes and Unique Name are available.
@@ -58,7 +58,7 @@ public enum TCHChannelSynchronizationStatus : Int {
 }
 
 //* Enumeration indicating the user's current status on a given channel.
-public enum TCHChannelStatus : Int {
+public enum TCHChannelStatus: Int {
     case invited = 0 ///< User is invited to the channel but not joined.
     case joined ///< User is joined to the channel.
     case notParticipating ///< User is not participating on this channel.
@@ -66,32 +66,32 @@ public enum TCHChannelStatus : Int {
 }
 
 //* Enumeration indicating the channel's visibility.
-public enum TCHChannelType : Int {
+public enum TCHChannelType: Int {
     case `public` = 0 ///< Channel is publicly visible
     case `private` ///< Channel is private and only visible to invited members.
 }
 
 //* Enumeration indicating the user's notification level on a channel.
-public enum TCHChannelNotificationLevel : Int {
+public enum TCHChannelNotificationLevel: Int {
     case `default` = 0 ///< User will receive notifications for the channel if joined, nothing if unjoined.
     case muted ///< User will not receive notifications for the channel.
 }
 
 //* Enumeration specifying the desired channel sorting criteria.
-public enum TCHChannelSortingCriteria : Int {
+public enum TCHChannelSortingCriteria: Int {
     case lastMessage = 0 ///< Order by most recent message.
     case friendlyName ///< Order by channel friendly name, case sensitive.
     case uniqueName ///< Order by channel unique name, case sensitive.
 }
 
 //* Enumeration specifying the desired channel sorting order.
-public enum TCHChannelSortingOrder : Int {
+public enum TCHChannelSortingOrder: Int {
     case ascending = 0 ///< Results will be in ascending order.
     case descending ///< Results will be in descending order.
 }
 
 //* Enumeration indicating the updates made to the TCHUser object.
-public enum TCHUserUpdate : Int {
+public enum TCHUserUpdate: Int {
     case friendlyName = 0 ///< The friendly name changed.
     case attributes ///< The attributes changed.
     case reachabilityOnline ///< The user's online status changed.
@@ -99,19 +99,19 @@ public enum TCHUserUpdate : Int {
 }
 
 //* Enumeration indicating the updates made to the TCHMember object.
-public enum TCHMemberUpdate : Int {
+public enum TCHMemberUpdate: Int {
     case lastConsumedMessageIndex = 0 ///< The member's last consumed message index changed.
     case attributes ///< The member's attributes changed.
 }
 
 //* Enumeration indicating the updates made to the TCHMessage object.
-public enum TCHMessageUpdate : Int {
+public enum TCHMessageUpdate: Int {
     case body = 0 ///< The message's body changed.
     case attributes ///< The message's attributes changed.
 }
 
 //* Enumeration indicating the type of message - text or media.
-public enum TCHMessageType : Int {
+public enum TCHMessageType: Int {
     case text = 0 ///< This message is a text message, containing a body.
     case media ///< This message is a media message with a media attachment.
 }
@@ -121,7 +121,9 @@ public enum TCHMessageType : Int {
  @param result The result of the operation.
  */
 public typealias TCHCompletion = (TCHResult) -> Void
-/** Completion block which will indicate the TCHResult of the operation and your handle to the TwilioChatClient instance.
+/**
+ Completion block which will indicate the TCHResult of the operation and
+ your handle to the TwilioChatClient instance.
 
  @param result The result of the operation.
  @param chatClient The newly created chat client which you should create a strong reference to.
@@ -198,7 +200,8 @@ public typealias TCHMediaOnCompleted = (String) -> Void
 public let TCHChannelOptionFriendlyName = ""
 //* Channel creation options key for setting unqiue name.
 public let TCHChannelOptionUniqueName = ""
-//* Channel creation options key for setting type.  Expected values are @(TCHChannelTypePublic) or @(TCHChannelTypePrivate)
+//* Channel creation options key for setting type.
+//* Expected values are @(TCHChannelTypePublic) or @(TCHChannelTypePrivate)
 public let TCHChannelOptionType = ""
 //* Channel creation options key for setting attributes.  Expected value is an NSDictionary*
 public let TCHChannelOptionAttributes = ""

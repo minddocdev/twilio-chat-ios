@@ -13,7 +13,9 @@ import Foundation
 open class TCHMembers: NSObject {
     /** Obtain the members of this channel.
 
-     @param completion Completion block that will specify the result of the operation and a reference to the first page of members for this channel.  If no completion block is specified, no operation will be executed.
+     @param completion Completion block that will specify the result of the
+     operation and a reference to the first page of members for this channel.
+     If no completion block is specified, no operation will be executed.
      */
     public func members(with completion: TCHMemberPaginatorCompletion) {
     }

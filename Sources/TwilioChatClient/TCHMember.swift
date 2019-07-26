@@ -22,32 +22,38 @@ open class TCHMember: NSObject {
     //* Timestamp the last consumption updated for the Member in this Channel as an NSDate.
     public var lastConsumptionTimestampAsDate: Date?
 
-    /** Return this member's attributes.
+    /**
+     Return this member's attributes.
 
      @return The developer-defined extensible attributes for this member.
      */
-    public func attributes() -> [String : Any?]? {
+    public func attributes() -> [String: Any?]? {
         // STUB
         return ["fake": "fake"]
     }
 
-    /** Set this member's attributes.
+    /**
+     Set this member's attributes.
 
-     @param attributes The new developer-defined extensible attributes for this member. (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
+     @param attributes The new developer-defined extensible attributes for this member.
+     (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
      @param completion Completion block that will specify the result of the operation.
      */
-    public func setAttributes(_ attributes: [String : Any?]?, completion: TCHCompletion?) {
+    public func setAttributes(_ attributes: [String: Any?]?, completion: TCHCompletion?) {
     }
 
-    /** Obtain a static snapshot of the user descriptor object for this member.
+    /**
+     Obtain a static snapshot of the user descriptor object for this member.
 
      @param completion Completion block that will specify the result of the operation and the user descriptor.
      */
     public func userDescriptor(with completion: TCHUserDescriptorCompletion) {
     }
 
-    /** Obtain a subscribed user object for the member.  If no current subscription exists for this user, this will
-     fetch the user and subscribe them.  The least recently used user object will be unsubscribed if you reach your instance's
+    /**
+     Obtain a subscribed user object for the member.  If no current subscription exists for this user, this will
+     fetch the user and subscribe them.
+     The least recently used user object will be unsubscribed if you reach your instance's
      user subscription limit.
 
      @param completion Completion block that will specify the result of the operation and the newly subscribed user.

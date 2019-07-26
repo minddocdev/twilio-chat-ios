@@ -16,31 +16,36 @@ open class TCHUserDescriptor: NSObject {
     //* The friendly name for this user.
     public var friendlyName: String?
 
-    /** Return this user's attributes.
+    /**
+     Return this user's attributes.
 
      @return The developer-defined extensible attributes for this user.
      */
-    public func attributes() -> [String : Any?]? {
+    public func attributes() -> [String: Any?]? {
         // STUB
         return ["fake": "fake"]
     }
 
-    /** Indicates whether the user is online.  Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
+    /**
+     Indicates whether the user is online.
+     Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
 
      @return YES if the user is online.
      */
     public func isOnline() -> Bool {
         // STUB
-        return true;
+        return true
     }
 
-    /** Indicates whether the user is notifiable.  Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
+    /**
+     Indicates whether the user is notifiable.
+     Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
 
      @return YES if the user is notifiable.
      */
     public func isNotifiable() -> Bool {
         // STUB
-        return true;
+        return true
     }
 
     /** Subscribe and obtain a full TCHUser object for this user descriptor.

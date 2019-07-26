@@ -16,24 +16,28 @@ open class TCHUser: NSObject {
     //* The friendly name for this user.
     public var friendlyName: String?
 
-    /** Return this user's attributes.
+    /**
+     Return this user's attributes.
 
      @return The developer-defined extensible attributes for this user.
      */
-    public func attributes() -> [String : Any?]? {
+    public func attributes() -> [String: Any?]? {
         // STUB
         return ["fake": "fake"]
     }
 
-    /** Set this user's attributes.
+    /**
+     Set this user's attributes.
 
-     @param attributes The new developer-defined extensible attributes for this user. (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
+     @param attributes The new developer-defined extensible attributes for this user.
+     (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
      @param completion Completion block that will specify the result of the operation.
      */
-    public func setAttributes(_ attributes: [String : Any?]?, completion: TCHCompletion?) {
+    public func setAttributes(_ attributes: [String: Any?]?, completion: TCHCompletion?) {
     }
 
-    /** Set this user's friendly name.
+    /**
+     Set this user's friendly name.
 
      @param friendlyName The new friendly name for this user.
      @param completion Completion block that will specify the result of the operation.
@@ -41,7 +45,9 @@ open class TCHUser: NSObject {
     public func setFriendlyName(_ friendlyName: String?, completion: TCHCompletion?) {
     }
 
-    /** Indicates whether the user is online.  Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
+    /**
+     Indicates whether the user is online.
+     Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
 
      @return YES if the user is online.
      */
@@ -50,7 +56,9 @@ open class TCHUser: NSObject {
         return true
     }
 
-    /** Indicates whether the user is notifiable.  Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
+    /**
+     Indicates whether the user is notifiable.
+     Note that if TwilioChatClient indicates reachability is not enabled, this will return NO.
 
      @return YES if the user is notifiable.
      */
@@ -59,7 +67,10 @@ open class TCHUser: NSObject {
         return true
     }
 
-    /** Indicates if the User is currently subscribed.  User objects which are no longer subscribed will not receive updates and will return nil or Unavailable for their values.
+    /**
+     Indicates if the User is currently subscribed.
+     User objects which are no longer subscribed will not receive updates
+     and will return nil or Unavailable for their values.
 
      @return YES if the user object is subscribed.
      */
@@ -68,7 +79,8 @@ open class TCHUser: NSObject {
         return true
     }
 
-    /** Manually unsubscribes this user object.  It will no longer receive updates from the Chat backend. 
+    /**
+     Manually unsubscribes this user object.  It will no longer receive updates from the Chat backend.
      */
     public func unsubscribe() {
     }

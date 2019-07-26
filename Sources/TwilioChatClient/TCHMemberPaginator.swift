@@ -31,7 +31,8 @@ open class TCHMemberPaginator: NSObject {
 
     /** Request the next page of results for the current operation.
 
-     @param completion The paginator completion block.  If no completion block is specified, no operation will be executed.
+     @param completion The paginator completion block.
+     If no completion block is specified, no operation will be executed.
      */
     public func requestNextPage(with completion: TCHMemberPaginatorCompletion) {
     }

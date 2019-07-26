@@ -10,7 +10,8 @@ import Foundation
 
 //* Representation of a chat channel.
 open class TCHChannel: NSObject {
-    //* Optional channel delegate.  Upon setting the delegate, you will receive the current channel synchronization status by delegate method.
+    //* Optional channel delegate.
+    //* Upon setting the delegate, you will receive the current channel synchronization status by delegate method.
     public weak var delegate: TCHChannelDelegate?
     //* The unique identifier for this channel.
     public var sid: String?
@@ -46,24 +47,28 @@ open class TCHChannel: NSObject {
     //* The index of the channel's most recent message.
     public var lastMessageIndex: NSNumber?
 
-    /** Return this channel's attributes.
+    /**
+     Return this channel's attributes.
 
      @return The developer-defined extensible attributes for this channel.
      */
-    public func attributes() -> [String : Any?]? {
+    public func attributes() -> [String: Any?]? {
         // STUB
         return ["fake": "fake"]
     }
 
-    /** Set this channel's attributes.
+    /**
+     Set this channel's attributes.
 
-     @param attributes The new developer-defined extensible attributes for this channel. (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
+     @param attributes The new developer-defined extensible attributes for this channel.
+     (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
      @param completion Completion block that will specify the result of the operation.
      */
-    public func setAttributes(_ attributes: [String : Any?]?, completion: TCHCompletion?) {
+    public func setAttributes(_ attributes: [String: Any?]?, completion: TCHCompletion?) {
     }
 
-    /** Set this channel's friendly name.
+    /**
+     Set this channel's friendly name.
 
      @param friendlyName The new friendly name for this channel.
      @param completion Completion block that will specify the result of the operation.
@@ -71,7 +76,8 @@ open class TCHChannel: NSObject {
     public func setFriendlyName(_ friendlyName: String?, completion: TCHCompletion?) {
     }
 
-    /** Set this channel's unique name.
+    /**
+     Set this channel's unique name.
 
      @param uniqueName The new unique name for this channel.
      @param completion Completion block that will specify the result of the operation.
@@ -79,7 +85,8 @@ open class TCHChannel: NSObject {
     public func setUniqueName(_ uniqueName: String?, completion: TCHCompletion?) {
     }
 
-    /** Set the user's notification level for the channel.  This property determines whether the
+    /**
+     Set the user's notification level for the channel.  This property determines whether the
      user will receive push notifications for activity on this channel.
 
      @param notificationLevel The new notification level for the current user on this channel.
@@ -88,28 +95,32 @@ open class TCHChannel: NSObject {
     public func setNotificationLevel(_ notificationLevel: TCHChannelNotificationLevel, completion: TCHCompletion?) {
     }
 
-    /** Join the current user to this channel.
+    /**
+     Join the current user to this channel.
 
      @param completion Completion block that will specify the result of the operation.
      */
     public func join(with completion: TCHCompletion?) {
     }
 
-    /** Decline an invitation to this channel.
+    /**
+     Decline an invitation to this channel.
 
      @param completion Completion block that will specify the result of the operation.
      */
     public func declineInvitation(with completion: TCHCompletion?) {
     }
 
-    /** Leave the current channel.
+    /**
+     Leave the current channel.
 
      @param completion Completion block that will specify the result of the operation.
      */
     public func leave(with completion: TCHCompletion?) {
     }
 
-    /** Destroy the current channel, removing all of its members.
+    /**
+     Destroy the current channel, removing all of its members.
 
      @param completion Completion block that will specify the result of the operation.
      */
@@ -120,7 +131,8 @@ open class TCHChannel: NSObject {
     public func typing() {
     }
 
-    /** Fetch the member object for the given identity if it exists.
+    /**
+     Fetch the member object for the given identity if it exists.
 
      @param identity The username to fetch.
      @return The TCHMember object, if one exists for the username for this channel.
@@ -130,24 +142,28 @@ open class TCHChannel: NSObject {
         return nil
     }
 
-    /** Fetch the number of unconsumed messages on this channel for the current user.
+    /**
+     Fetch the number of unconsumed messages on this channel for the current user.
 
      Available even if the channel is not yet synchronized.  Subsequent calls of this
      method prior to the local cache's expiry will return cached values.
 
-     @param completion Completion block that will specify the requested count.  If no completion block is specified, no operation will be executed.
+     @param completion Completion block that will specify the requested count.
+     If no completion block is specified, no operation will be executed.
      */
     public func getUnconsumedMessagesCount(with completion: TCHCountCompletion) {
     }
 
-    /** Fetch the number of messages on this channel.
+    /**
+     Fetch the number of messages on this channel.
 
      Available even if the channel is not yet synchronized.
 
      Available even if the channel is not yet synchronized.  Subsequent calls of this
      method prior to the local cache's expiry will return cached values.
 
-     @param completion Completion block that will specify the requested count.  If no completion block is specified, no operation will be executed.
+     @param completion Completion block that will specify the requested count.
+     If no completion block is specified, no operation will be executed.
      */
     public func getMessagesCount(with completion: TCHCountCompletion) {
     }
@@ -159,7 +175,8 @@ open class TCHChannel: NSObject {
      Available even if the channel is not yet synchronized.  Subsequent calls of this
      method prior to the local cache's expiry will return cached values.
 
-     @param completion Completion block that will specify the requested count.  If no completion block is specified, no operation will be executed.
+     @param completion Completion block that will specify the requested count.
+     If no completion block is specified, no operation will be executed.
      */
     public func getMembersCount(with completion: TCHCountCompletion) {
     }
@@ -186,7 +203,8 @@ public protocol TCHChannelDelegate: NSObjectProtocol {
      @param channel The channel.
      @param status The current synchronization status of the channel.
      */
-    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, synchronizationStatusUpdated status: TCHChannelSynchronizationStatus)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel,
+                    synchronizationStatusUpdated status: TCHChannelSynchronizationStatus)
     /** Called when this channel has a new member join.
 
      @param client The chat client.
@@ -253,7 +271,8 @@ public protocol TCHChannelDelegate: NSObjectProtocol {
      @param user The object for changed user.
      @param updated An indication of what changed on the user.
      */
-    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, user: TCHUser, updated: TCHUserUpdate)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel,
+                    member: TCHMember, user: TCHUser, updated: TCHUserUpdate)
     /** Called when the user associated with a member of this channel is subscribed to.
 
      @param client The chat client.

@@ -55,17 +55,18 @@ open class TCHMessage: NSObject {
 
      @return The developer-defined extensible attributes for this message.
      */
-    public func attributes() -> [String : Any?]? {
+    public func attributes() -> [String: Any?]? {
         // STUB
         return ["fake": "fake"]
     }
 
     /** Set this message's attributes.
 
-     @param attributes The new developer-defined extensible attributes for this message. (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
+     @param attributes The new developer-defined extensible attributes for this message.
+     (Supported types are NSString, NSNumber, NSArray, NSDictionary and NSNull)
      @param completion Completion block that will specify the result of the operation.
      */
-    public func setAttributes(_ attributes: [String : Any?]?, completion: TCHCompletion?) {
+    public func setAttributes(_ attributes: [String: Any?]?, completion: TCHCompletion?) {
     }
 
     /** Determine if the message has media content.
@@ -74,7 +75,7 @@ open class TCHMessage: NSObject {
      */
     public func hasMedia() -> Bool {
         // STUB
-        return false;
+        return false
     }
 
     /** Retrieve this message's attached media, if there is any.
@@ -82,9 +83,14 @@ open class TCHMessage: NSObject {
      @param mediaStream An instance of NSOutputStream you create that the media will be written to.
      @param onStarted Callback block which is called when the media download starts.
      @param onProgress Callback block which is called as download progresses with the most recent number of bytes read.
-     @param onCompleted Callback block which is called upon media download completion with the media's sid if successful.
+     @param onCompleted Callback block which is called upon media download completion
+     with the media's sid if successful.
      @param completion Completion block that will specify the result of the operation.
      */
-    public func getMediaWith(_ mediaStream: OutputStream, onStarted: TCHMediaOnStarted?, onProgress: TCHMediaOnProgress?, onCompleted: TCHMediaOnCompleted?, completion: TCHCompletion?) {
+    public func getMediaWith(_ mediaStream: OutputStream,
+                             onStarted: TCHMediaOnStarted?,
+                             onProgress: TCHMediaOnProgress?,
+                             onCompleted: TCHMediaOnCompleted?,
+                             completion: TCHCompletion?) {
     }
 }

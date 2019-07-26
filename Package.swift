@@ -7,7 +7,7 @@ let package = Package(
     products: [
         .library(
             name: "TwilioChatClient",
-            targets: ["TwilioChatClient"]),
+            targets: ["TwilioChatClient"])
     ],
     dependencies: [],
     targets: [
@@ -16,6 +16,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "TwilioChatClientTests",
-            dependencies: ["TwilioChatClient"]),
+            dependencies: ["TwilioChatClient"])
     ]
 )

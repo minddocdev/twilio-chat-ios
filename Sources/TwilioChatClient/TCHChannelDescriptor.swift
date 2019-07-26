@@ -8,7 +8,8 @@
 
 import Foundation
 
-//* A snaphshot of a publicly available channel.  The data and counts on this object are not updated beyond initial fetch so should not be cached long term.
+//* A snaphshot of a publicly available channel.
+//* The data and counts on this object are not updated beyond initial fetch so should not be cached long term.
 
 open class TCHChannelDescriptor: NSObject {
     //* The unique identifier for this channel.
@@ -28,7 +29,7 @@ open class TCHChannelDescriptor: NSObject {
 
      @return The developer-defined extensible attributes for this channel.
      */
-    public func attributes() -> [String : Any?]? {
+    public func attributes() -> [String: Any?]? {
         // STUB
         return ["fake": "fake"]
     }

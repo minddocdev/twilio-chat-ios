@@ -8,6 +8,6 @@ final class TwilioChatClientTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testChatClientSDKProps", testChatClientSDKProps),
+        ("testChatClientSDKProps", testChatClientSDKProps)
     ]
 }

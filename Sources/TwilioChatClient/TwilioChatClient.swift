@@ -40,21 +40,25 @@ open class TwilioChatClient: NSObject {
      @param token The client access token to use when communicating with Twilio.
      @param properties The properties to initialize the client with, if this is nil defaults will be used.
      @param delegate Delegate conforming to TwilioChatClientDelegate for chat client lifecycle notifications.
-     @param completion Completion block that will specify the result of the operation and a reference to the new TwilioChatClient.
+     @param completion Completion block that will specify the result of the operation and a reference
+     to the new TwilioChatClient.
      */
-    convenience init(token: String, properties: TwilioChatClientProperties?, delegate: TwilioChatClientDelegate?, completion: TCHTwilioClientCompletion) {
+    convenience init(token: String, properties: TwilioChatClientProperties?, delegate: TwilioChatClientDelegate?,
+                     completion: TCHTwilioClientCompletion) {
         // STUB
         self.init()
     }
-    
+
     /** Initialize a new chat client instance.
 
      @param withToken The client access token to use when communicating with Twilio.
      @param properties The properties to initialize the client with, if this is nil defaults will be used.
      @param delegate Delegate conforming to TwilioChatClientDelegate for chat client lifecycle notifications.
-     @param completion Completion block that will specify the result of the operation and a reference to the new TwilioChatClient.
+     @param completion Completion block that will specify the result of the operation
+     and a reference to the new TwilioChatClient.
      */
-    public class func chatClient(withToken: String, properties: TwilioChatClientProperties?, delegate: TwilioChatClientDelegate?, completion: TCHTwilioClientCompletion) {
+    public class func chatClient(withToken: String, properties: TwilioChatClientProperties?,
+                                 delegate: TwilioChatClientDelegate?, completion: TCHTwilioClientCompletion) {
     }
 
     /** Returns the name of the SDK for diagnostic purposes.
@@ -95,7 +99,8 @@ open class TwilioChatClient: NSObject {
 
     /** List of channels available to the current user.
 
-     This will be nil until the client is fully initialized, see the client delegate callback `chatClient:synchronizationStatusUpdated:`
+     This will be nil until the client is fully initialized,
+     see the client delegate callback `chatClient:synchronizationStatusUpdated:`
 
      @return The channelsList object.
      */
@@ -129,12 +134,14 @@ open class TwilioChatClient: NSObject {
     public func deregister(withNotificationToken token: Data, completion: TCHCompletion?) {
     }
 
-    /** Queue the incoming notification with the messaging library for processing - notifications usually arrive from `didReceiveRemoteNotification`.
+    /**
+     Queue the incoming notification with the messaging library for processing -
+     notifications usually arrive from `didReceiveRemoteNotification`.
 
      @param notification The incomming notification.
      @param completion Completion block that will specify the result of the operation.
      */
-    public func handleNotification(_ notification: [AnyHashable : Any], completion: TCHCompletion?) {
+    public func handleNotification(_ notification: [AnyHashable: Any], completion: TCHCompletion?) {
     }
 
     /** Indicates whether reachability is enabled for this instance.
@@ -212,7 +219,8 @@ public protocol TwilioChatClientDelegate: NSObjectProtocol {
      @param channel The channel.
      @param status The current synchronization status of the channel.
      */
-    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, synchronizationStatusUpdated status: TCHChannelSynchronizationStatus)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel,
+                    synchronizationStatusUpdated status: TCHChannelSynchronizationStatus)
     /** Called when one of the current users channels is deleted.
 
      @param client The chat client.
@@ -283,26 +291,44 @@ public protocol TwilioChatClientDelegate: NSObjectProtocol {
      @param member The member.
      */
     func chatClient(_ client: TwilioChatClient, typingEndedOn channel: TCHChannel, member: TCHMember)
-    /** Called as a result of TwilioChatClient's handleNotification: method being invoked for a new message received notification.  `handleNotification:` parses the push payload and extracts the new message's channel and index for the push notification then calls this delegate method.
+    /**
+     Called as a result of TwilioChatClient's handleNotification:
+     method being invoked for a new message received notification.
+     `handleNotification:` parses the push payload and extracts the new message's channel and
+     index for the push notification
+     then calls this delegate method.
 
      @param client The chat client.
      @param channelSid The channel sid for the new message.
      @param messageIndex The index of the new message.
      */
-    func chatClient(_ client: TwilioChatClient, notificationNewMessageReceivedForChannelSid channelSid: String, messageIndex: UInt)
-    /** Called as a result of TwilioChatClient's handleNotification: method being invoked for an added to channel notification.  `handleNotification:` parses the push payload and extracts the channel for the push notification then calls this delegate method.
+    func chatClient(_ client: TwilioChatClient,
+                    notificationNewMessageReceivedForChannelSid channelSid: String, messageIndex: UInt)
+    /**
+     Called as a result of TwilioChatClient's handleNotification: method being invoked
+     for an added to channel notification.
+     `handleNotification:` parses the push payload and extracts the channel for the push notification
+     then calls this delegate method.
 
      @param client The chat client.
      @param channelSid The channel sid for the newly added channel.
      */
     func chatClient(_ client: TwilioChatClient, notificationAddedToChannelWithSid channelSid: String)
-    /** Called as a result of TwilioChatClient's handleNotification: method being invoked for an invited to channel notification.  `handleNotification:` parses the push payload and extracts the channel for the push notification then calls this delegate method.
+    /**
+     Called as a result of TwilioChatClient's handleNotification: method being invoked
+     for an invited to channel notification.
+     `handleNotification:` parses the push payload and extracts the channel for the push notification
+     then calls this delegate method.
 
      @param client The chat client.
      @param channelSid The channel sid for the newly invited channel.
      */
     func chatClient(_ client: TwilioChatClient, notificationInvitedToChannelWithSid channelSid: String)
-    /** Called as a result of TwilioChatClient's handleNotification: method being invoked for a removed from channel notification.  `handleNotification:` parses the push payload and extracts the channel for the push notification then calls this delegate method.
+    /**
+     Called as a result of TwilioChatClient's handleNotification:
+     method being invoked for a removed from channel notification.
+     `handleNotification:` parses the push payload and extracts the channel for the
+     push notification then calls this delegate method.
 
      @param client The chat client.
      @param channelSid The channel sid for the removed channel.
@@ -312,9 +338,11 @@ public protocol TwilioChatClientDelegate: NSObjectProtocol {
 
         [[UIApplication currentApplication] setApplicationIconBadgeNumber:badgeCount]
 
-     Please note that badge count indicates the number of 1:1 (2 member only) channels that have unread messages.  This will not reflect total unread message count or channels with more than 2 members.
+     Please note that badge count indicates the number of 1:1 (2 member only) channels that have unread messages.
+     This will not reflect total unread message count or channels with more than 2 members.
 
-     To ensure your application's badge updates when the application is in the foreground if Twilio is managing your badge counts.  You may disregard this delegate callback otherwise.
+     To ensure your application's badge updates when the application is in the foreground
+     if Twilio is managing your badge counts.  You may disregard this delegate callback otherwise.
 
      @param client The chat client.
      @param badgeCount The updated badge count.
