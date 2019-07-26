@@ -1,10 +1,24 @@
 version: 2
 jobs:
-  build:
+  lint:
+    docker:
+    - image: norionomura/swiftlint:0.34.0_swift-5.0.2
+    steps:
+      - checkout
+      - run:
+          name: Lint swift package
+          command: swiftlint
+  test:
     docker:
     - image: swift:5.0.2
     steps:
       - checkout
       - run:
-          name: Build swift package
-          command: swift build
+          name: Test swift package
+          command: swift test
+workflows:
+  version: 2
+  lint_and_test:
+    jobs:
+      - lint
+      - test
