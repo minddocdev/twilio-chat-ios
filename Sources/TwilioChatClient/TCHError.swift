@@ -17,5 +17,5 @@ import Foundation
  - userInfo[TCHErrorMsgKey] - May contain an optional string representation of the error with more detail if available
  */
 
-@objc open class TCHError: NSError {
+open class TCHError: NSError {
 }

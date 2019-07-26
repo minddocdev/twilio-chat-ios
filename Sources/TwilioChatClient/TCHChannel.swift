@@ -166,34 +166,34 @@ open class TCHChannel: NSObject {
 }
 
 //* This protocol declares the channel delegate methods.
-@objc public protocol TCHChannelDelegate: NSObjectProtocol {
+public protocol TCHChannelDelegate: NSObjectProtocol {
     /** Called when this channel is changed.
 
      @param client The chat client.
      @param channel The channel.
      @param updated An indication of what changed on the channel.
     */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, updated: TCHChannelUpdate)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, updated: TCHChannelUpdate)
     /** Called when this channel is deleted.
 
      @param client The chat client.
      @param channel The channel.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channelDeleted channel: TCHChannel)
+    func chatClient(_ client: TwilioChatClient, channelDeleted channel: TCHChannel)
     /** Called when a channel the current the client is aware of changes synchronization state.
 
      @param client The chat client.
      @param channel The channel.
      @param status The current synchronization status of the channel.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, synchronizationStatusUpdated status: TCHChannelSynchronizationStatus)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, synchronizationStatusUpdated status: TCHChannelSynchronizationStatus)
     /** Called when this channel has a new member join.
 
      @param client The chat client.
      @param channel The channel.
      @param member The member.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, memberJoined member: TCHMember)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, memberJoined member: TCHMember)
     /** Called when a channel the current user is subscribed to has a member modified.
 
      @param client The chat client.
@@ -201,21 +201,21 @@ open class TCHChannel: NSObject {
      @param member The member.
      @param updated An indication of what changed on the member.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, updated: TCHMemberUpdate)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, updated: TCHMemberUpdate)
     /** Called when this channel has a member leave.
 
      @param client The chat client.
      @param channel The channel.
      @param member The member.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, memberLeft member: TCHMember)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, memberLeft member: TCHMember)
     /** Called when this channel receives a new message.
 
      @param client The chat client.
      @param channel The channel.
      @param message The message.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, messageAdded message: TCHMessage)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, messageAdded message: TCHMessage)
     /** Called when a message on a channel the current user is subscribed to is modified.
 
      @param client The chat client.
@@ -223,28 +223,28 @@ open class TCHChannel: NSObject {
      @param message The message.
      @param updated An indication of what changed on the message.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, message: TCHMessage, updated: TCHMessageUpdate)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, message: TCHMessage, updated: TCHMessageUpdate)
     /** Called when a message on a channel the current user is subscribed to is deleted.
 
      @param client The chat client.
      @param channel The channel.
      @param message The message.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, messageDeleted message: TCHMessage)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, messageDeleted message: TCHMessage)
     /** Called when a member of a channel starts typing.
 
      @param client The chat client.
      @param channel The channel.
      @param member The member.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, typingStartedOn channel: TCHChannel, member: TCHMember)
+    func chatClient(_ client: TwilioChatClient, typingStartedOn channel: TCHChannel, member: TCHMember)
     /** Called when a member of a channel ends typing.
 
      @param client The chat client.
      @param channel The channel.
      @param member The member.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, typingEndedOn channel: TCHChannel, member: TCHMember)
+    func chatClient(_ client: TwilioChatClient, typingEndedOn channel: TCHChannel, member: TCHMember)
     /** Called when this channel has a member's user updated.
 
      @param client The chat client.
@@ -253,7 +253,7 @@ open class TCHChannel: NSObject {
      @param user The object for changed user.
      @param updated An indication of what changed on the user.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, user: TCHUser, updated: TCHUserUpdate)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, user: TCHUser, updated: TCHUserUpdate)
     /** Called when the user associated with a member of this channel is subscribed to.
 
      @param client The chat client.
@@ -261,7 +261,7 @@ open class TCHChannel: NSObject {
      @param member The member.
      @param user The object for subscribed user.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, userSubscribed user: TCHUser)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, userSubscribed user: TCHUser)
     /** Called when the user associated with a member of this channel is unsubscribed from.
 
      @param client The chat client.
@@ -269,5 +269,5 @@ open class TCHChannel: NSObject {
      @param member The member.
      @param user The object for unsubscribed user.
      */
-    @objc optional func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, userUnsubscribed user: TCHUser)
+    func chatClient(_ client: TwilioChatClient, channel: TCHChannel, member: TCHMember, userUnsubscribed user: TCHUser)
 }
