@@ -1,5 +1,7 @@
 # twilio-chat-ios
 
+[![CircleCI](https://circleci.com/gh/minddocdev/twilio-chat-ios/tree/master.svg?style=svg)](https://circleci.com/gh/minddocdev/twilio-chat-ios/tree/master)
+
 [Twilio chat iOS library](https://github.com/twilio/twilio-chat-ios) fully stubbed for SPM integrations.
 
 - [API Reference > iOS Client SDK](https://media.twiliocdn.com/sdk/ios/chat/releases/2.4.8/docs/index.html)
