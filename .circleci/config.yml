@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: swift:5.0.2
+    steps:
+      - checkout
+      - run:
+          name: Build swift package
+          command: swift build
